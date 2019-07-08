@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 //item model
-const Quote = require('../../models/Quote');
+const Quote = require('../../models/quote');
 
 //ROUTES
 router.get('/', (req, res) => {
