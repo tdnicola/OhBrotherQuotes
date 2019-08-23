@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=k, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Oh Brother where art thou</title>
+</head>
+<body>
+    <p>Random Quote: </p>
+    <p id="quote"></p>
+    <script>
+        const codeElement = document.getElementById('quote');
+
+        fetch('https://ohbrother.herokuapp.com/api/quotes')
+           .then(function(response) {
+                return response.json();
+            })
+            .then(function(myJson) {
+                console.log(JSON.stringify(myJson));
+                var totalResponses = myJson.length;
+                var resIndex = Math.floor((Math.random() * 10) +1) % totalResponses;
+                // var selected = res.body.data[resIndex]
+                codeElement.innerText = JSON.stringify(myJson[resIndex].quote)
+            });
+
+     </script>
+    
+</body>
+</html>
